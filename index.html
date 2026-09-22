@@ -58,6 +58,14 @@ button,a{font:inherit}
 .steps li{padding-left:5px;margin:0 0 9px}.steps li:last-child{margin-bottom:0}
 .security-note{margin:0 20px 20px;padding:14px 15px;border-radius:14px;background:#f1f8f4;color:#315a3a;font-size:13px;line-height:1.5}
 .security-note b{color:#1f5130}
+.protect-alert{margin-top:20px;border:2px solid #f9ab00;border-radius:20px;background:#fff8e1;padding:18px 20px;box-shadow:0 2px 10px rgba(249,171,0,.12)}
+.protect-alert-head{display:flex;gap:12px;align-items:flex-start}
+.protect-alert svg{width:26px;height:26px;flex:none;color:#b06000}
+.protect-alert h3{margin:0 0 7px;font-size:18px;color:#7a4300}
+.protect-alert p{margin:0;color:#5f4b32;font-size:14px;line-height:1.55}
+.protect-alert ol{margin:14px 0 0;padding-left:22px;color:#4f463a;font-size:14px;line-height:1.55}
+.protect-alert li{margin:0 0 7px}.protect-alert li:last-child{margin-bottom:0}
+.protect-alert strong{color:#6d3c00}
 .footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:#7a8087;line-height:1.6}
 .overlay{position:fixed;inset:0;z-index:50;background:rgba(32,33,36,.42);opacity:0;pointer-events:none;transition:opacity .2s}
 .overlay.show{opacity:1;pointer-events:auto}
@@ -153,12 +161,28 @@ button,a{font:inherit}
       </div>
       <div class="info">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M5 20h14"/></svg>
-        <b>Versão mais recente</b><span>O link aponta sempre para o APK publicado na release “apk” do projeto.</span>
+        <b>Versão mais recente</b><span>O APK é baixado diretamente da mesma pasta da Z-Link Store, permitindo acompanhar o progresso em tempo real.</span>
       </div>
     </div>
     <div class="notice">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M12 10v6M12 7h.01"/></svg>
       <div>Depois do download, o navegador ou o Android pode solicitar autorização para instalar aplicativos dessa fonte. A Z-Link Store não ignora nem contorna as confirmações de segurança do sistema.</div>
+    </div>
+
+    <div class="protect-alert" role="alert" aria-live="polite">
+      <div class="protect-alert-head">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3 2.8 20h18.4L12 3Z"/><path d="M12 9v5M12 17.2h.01"/></svg>
+        <div>
+          <h3>Atenção ao Google Play Protect</h3>
+          <p>O Z-Link Talk é distribuído diretamente pelo desenvolvedor Diniz-RF, fora da Google Play. Por isso, o Play Protect pode solicitar uma verificação adicional ou bloquear a instalação de um app ainda não verificado, principalmente quando ele utiliza permissões sensíveis. Isso não significa automaticamente que o arquivo seja malicioso, mas o aviso de segurança deve ser analisado antes de continuar.</p>
+        </div>
+      </div>
+      <ol>
+        <li>Baixe o APK somente por esta <strong>Z-Link Store oficial</strong> ou pelo GitHub Releases informado nesta página.</li>
+        <li>Quando o Android solicitar, permita ao navegador <strong>Instalar apps desconhecidos → Permitir desta fonte</strong>.</li>
+        <li>Se o Play Protect oferecer a opção de <strong>verificar/analisar o app</strong>, use essa verificação e aguarde o resultado.</li>
+        <li>Se o Play Protect identificar o aplicativo como nocivo ou impedir a instalação, <strong>não desative a proteção globalmente</strong>. Confirme a origem do APK e procure uma versão atualizada ou suporte do desenvolvedor antes de prosseguir.</li>
+      </ol>
     </div>
 
     <div class="guide">
@@ -172,7 +196,7 @@ button,a{font:inherit}
         <li>Escolha o navegador que você está usando (por exemplo, Chrome) e ative <b>Permitir desta fonte</b>.</li>
         <li>Volte ao APK baixado e confirme <b>Instalar</b>. Depois da instalação, você pode desativar novamente <b>Permitir desta fonte</b>.</li>
       </ol>
-      <div class="security-note"><b>Google Play Protect:</b> mantenha a proteção ativada. Se aparecer um alerta, confirme que o arquivo veio deste endereço oficial da Z-Link Store/GitHub antes de prosseguir. Não é necessário desativar globalmente o Play Protect para instalar o aplicativo.</div>
+      <div class="security-note"><b>Arquivo oficial:</b> esta página entrega o APK publicado pelo desenvolvedor Diniz-RF no endereço de GitHub Releases configurado na Z-Link Store. O Android continua responsável pela confirmação final da instalação.</div>
     </div>
   </section>
 
@@ -198,8 +222,10 @@ button,a{font:inherit}
 <div class="toast" id="toast"></div>
 
 <script>
-const APK_URL = 'https://github.com/dinizrfoficial/update/releases/download/apk/app-release.apk';
-const APK_FILE_NAME = 'Z-Link-Talk.apk';
+// O APK deve ficar no mesmo diretório do index.html da Z-Link Store.
+// Ex.: /store/index.html e /store/app-release.apk
+const APK_URL = './app-release.apk';
+const APK_FILE_NAME = 'app-release.apk';
 const STORE_URL = 'https://dinizrfoficial.github.io/store/';
 
 const overlay = document.getElementById('confirmOverlay');
@@ -282,9 +308,9 @@ async function startTrackedDownload(){
   revokeOldObjectUrl();
 
   statusbar.classList.add('show');
-  downloadStatus.textContent='Conectando ao GitHub…';
+  downloadStatus.textContent='Preparando download…';
   downloadPercent.textContent='0%';
-  downloadSize.textContent='Preparando download…';
+  downloadSize.textContent='Obtendo tamanho do arquivo…';
   progressTrack.classList.remove('indeterminate');
   progressFill.style.width='0%';
   progressFill.style.transform='none';
@@ -296,26 +322,42 @@ async function startTrackedDownload(){
   abortController = new AbortController();
 
   try {
+    let expectedSize = 0;
+
+    // Como o APK fica no mesmo domínio/pasta do index.html, podemos consultar
+    // seu tamanho e ler o fluxo de bytes sem bloqueio de CORS.
+    try {
+      const headResponse = await fetch(APK_URL, {
+        method:'HEAD',
+        cache:'no-store',
+        signal:abortController.signal
+      });
+
+      if (headResponse.ok) {
+        expectedSize = Number(headResponse.headers.get('content-length')) || 0;
+      }
+    } catch (headError) {
+      if (headError && headError.name === 'AbortError') throw headError;
+      // Se HEAD não estiver disponível, o GET abaixo ainda pode informar o tamanho.
+    }
+
+    downloadStatus.textContent='Baixando Z-Link Talk…';
+
     const response = await fetch(APK_URL, {
       method:'GET',
-      mode:'cors',
       cache:'no-store',
-      redirect:'follow',
       signal:abortController.signal
     });
 
     if (!response.ok) {
-      throw new Error('HTTP '+response.status);
+      throw new Error('Download HTTP '+response.status);
     }
 
     const contentType=(response.headers.get('content-type') || '').toLowerCase();
     const totalHeader=response.headers.get('content-length');
-    const total=totalHeader ? Number(totalHeader) : 0;
+    const responseSize=totalHeader ? Number(totalHeader) : 0;
+    const total=expectedSize > 0 ? expectedSize : responseSize;
 
-    downloadStatus.textContent='Baixando Z-Link Talk…';
-
-    // Navegadores sem streaming ainda conseguem concluir o download,
-    // apenas sem atualização por bloco.
     if (!response.body || !response.body.getReader) {
       setIndeterminate();
       const blob=await response.blob();
@@ -360,18 +402,16 @@ async function startTrackedDownload(){
       return;
     }
 
-    // Alguns hosts/navegadores podem impedir o fetch por CORS.
-    // Nesse caso, oferecemos o download direto normal do navegador.
     downloadState='fallback';
     progressTrack.classList.remove('indeterminate');
     progressFill.style.width='0%';
     downloadPercent.textContent='—';
-    downloadStatus.textContent='O navegador não permitiu acompanhar o progresso.';
-    downloadSize.textContent='Use o botão abaixo para fazer o download direto.';
+    downloadStatus.textContent='Não foi possível iniciar o download.';
+    downloadSize.textContent='Verifique se app-release.apk está na mesma pasta do index.html.';
     installBtn.disabled=false;
     installBtn.textContent='Download direto';
     confirmInstall.disabled=false;
-    showToast('Não foi possível ler o progresso. O download direto continua disponível.');
+    console.error('Falha no download acompanhado:', err);
   }
 }
 
