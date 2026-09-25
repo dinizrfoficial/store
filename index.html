@@ -153,7 +153,7 @@ button,a{font:inherit}
     <div class="info-grid">
       <div class="info">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M9 18h6"/></svg>
-        <b>Instalação Android</b><span>O APK é baixado pela própria página com progresso em tempo real quando o navegador permite.</span>
+        <b>Instalação Android</b><span>O APK é baixado pela própria página com progresso em tempo real quando o navegador permite. No Android 6, a Z-Link Store utiliza download direto para maior compatibilidade.</span>
       </div>
       <div class="info">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4.5 6v5.5c0 4.7 3.2 7.8 7.5 9.5 4.3-1.7 7.5-4.8 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/></svg>
@@ -191,10 +191,10 @@ button,a{font:inherit}
         <div><b>Como permitir a instalação no Android</b><span>O caminho pode variar um pouco conforme a marca e a versão do Android.</span></div>
       </div>
       <ol class="steps">
-        <li>Toque em <b>Instalar</b> nesta página e aguarde o download chegar a 100%.</li>
-        <li>Se o Android pedir permissão, abra <b>Configurações → Apps → Acesso especial → Instalar apps desconhecidos</b>.</li>
-        <li>Escolha o navegador que você está usando (por exemplo, Chrome) e ative <b>Permitir desta fonte</b>.</li>
-        <li>Volte ao APK baixado e confirme <b>Instalar</b>. Depois da instalação, você pode desativar novamente <b>Permitir desta fonte</b>.</li>
+        <li>Toque em <b>Instalar</b> nesta página e aguarde o download concluir. No Android 6, o download é iniciado diretamente pelo navegador.</li>
+        <li>Se estiver no Android 6, abra <b>Configurações → Segurança → Fontes desconhecidas</b>. Em versões mais novas do Android, use <b>Configurações → Apps → Acesso especial → Instalar apps desconhecidos</b>.</li>
+        <li>No Android 6, ative temporariamente <b>Fontes desconhecidas</b>. Em versões mais novas, escolha o navegador usado (por exemplo, Chrome) e ative <b>Permitir desta fonte</b>.</li>
+        <li>Volte ao APK baixado e confirme <b>Instalar</b>. Depois da instalação, você pode desativar novamente <b>Fontes desconhecidas</b> (Android 6) ou <b>Permitir desta fonte</b> (Android mais novo).</li>
       </ol>
       <div class="security-note"><b>Arquivo oficial:</b> esta página entrega o APK publicado pelo desenvolvedor Diniz-RF no endereço de GitHub Releases configurado na Z-Link Store. O Android continua responsável pela confirmação final da instalação.</div>
     </div>
@@ -221,6 +221,74 @@ button,a{font:inherit}
 </div>
 <div class="toast" id="toast"></div>
 
+<script>
+/*
+ * Compatibilidade de instalação para Android 6 e anteriores.
+ * Este bloco usa somente JavaScript antigo (ES5), para funcionar mesmo em
+ * navegadores/WebViews que não entendem async/await, arrow functions ou fetch.
+ *
+ * No Android 6, evita Blob URL e entrega diretamente app-release.apk ao
+ * navegador/gerenciador de downloads do sistema.
+ */
+(function(){
+  var ua = navigator.userAgent || '';
+  var match = ua.match(/Android\s+(\d+)/i);
+  var androidMajor = match ? parseInt(match[1], 10) : null;
+
+  if (androidMajor === null || isNaN(androidMajor) || androidMajor > 6) {
+    return;
+  }
+
+  var APK_URL_LEGACY = './app-release.apk';
+  var install = document.getElementById('installBtn');
+  var statusbarLegacy = document.getElementById('statusbar');
+  var downloadStatusLegacy = document.getElementById('downloadStatus');
+  var downloadPercentLegacy = document.getElementById('downloadPercent');
+  var downloadSizeLegacy = document.getElementById('downloadSize');
+  var progressFillLegacy = document.getElementById('progressFill');
+  var progressTrackLegacy = document.getElementById('progressTrack');
+
+  if (!install) return;
+
+  install.addEventListener('click', function(e){
+    if (e) {
+      e.preventDefault();
+      if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+      if (e.stopPropagation) e.stopPropagation();
+    }
+
+    if (statusbarLegacy) statusbarLegacy.className += ' show';
+    if (downloadStatusLegacy) downloadStatusLegacy.innerHTML = 'Android 6 detectado • iniciando download direto…';
+    if (downloadPercentLegacy) downloadPercentLegacy.innerHTML = 'APK';
+    if (downloadSizeLegacy) downloadSizeLegacy.innerHTML = 'Aguarde o download e depois abra o arquivo pela notificação ou pela pasta Downloads.';
+    if (progressTrackLegacy) progressTrackLegacy.className = progressTrackLegacy.className.replace('indeterminate','');
+    if (progressFillLegacy) progressFillLegacy.style.width = '0%';
+
+    install.disabled = true;
+    install.innerHTML = 'Iniciando…';
+
+    /*
+     * Navegação direta: é a forma mais compatível no Android 6.
+     * O navegador baixa o APK real, em vez de receber um endereço blob:.
+     */
+    setTimeout(function(){
+      try {
+        window.location.href = APK_URL_LEGACY;
+      } catch (err) {
+        try { window.location.assign(APK_URL_LEGACY); } catch (ignored) {}
+      }
+    }, 60);
+
+    setTimeout(function(){
+      install.disabled = false;
+      install.innerHTML = 'Instalar';
+      if (downloadStatusLegacy) downloadStatusLegacy.innerHTML = 'Download enviado ao navegador';
+    }, 1800);
+
+    return false;
+  }, true);
+})();
+</script>
 <script>
 // O APK deve ficar no mesmo diretório do index.html da Z-Link Store.
 // Ex.: /store/index.html e /store/app-release.apk
