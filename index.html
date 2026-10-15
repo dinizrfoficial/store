@@ -66,6 +66,68 @@ a{color:inherit}
 .contrib-notice p{margin:0;color:#485b79;font-size:13.5px;line-height:1.62}
 @media(max-width:950px){.contrib-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.contrib-step{min-height:180px}}
 @media(max-width:560px){.contrib-grid{grid-template-columns:1fr;gap:10px}.contrib-step{min-height:0;padding:18px}.contrib-num{margin-bottom:10px}.contrib-notice{padding:16px;gap:10px}.contrib-notice svg{width:20px;height:20px}}
+
+/* === Complemento visual: capturas reais do app e acesso à renovação === */
+.zt-renew-quick{position:relative;margin-top:25px;padding:17px 20px;border:1px solid #cdddf8;border-radius:18px;background:linear-gradient(100deg,#f0f6ff,#fff);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.zt-renew-quick b{display:block;font-size:15px;margin-bottom:4px;color:#183456}
+.zt-renew-quick p{margin:0;color:#5b6b81;font-size:13px;line-height:1.55}
+.zt-renew-link{display:inline-flex;justify-content:center;align-items:center;white-space:nowrap;text-decoration:none;min-height:43px;padding:0 18px;border-radius:12px;font-weight:800;font-size:13px;background:#165dff;color:#fff;transition:.15s}
+.zt-renew-link:hover{background:#0e47ca}
+.zt-gallery-shell{padding:20px 18px 16px;position:relative;overflow:hidden}
+.zt-gallery-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.zt-gallery-tip{font-size:12px;color:#657087;line-height:1.5}
+.zt-gallery-nav{display:flex;gap:8px}
+.zt-gallery-nav button{height:38px;width:38px;border-radius:50%;border:1px solid #d6e1f2;background:#fff;color:#275492;font-size:25px;line-height:1;cursor:pointer;display:grid;place-items:center}
+.zt-gallery-nav button:hover{background:#eef5ff;border-color:#aac8ff}
+.zt-gallery-track{display:flex;align-items:start;gap:14px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding:5px 3px 15px;scrollbar-color:#b4c9e8 transparent;scrollbar-width:thin}
+.zt-shot{flex:0 0 170px;scroll-snap-align:start;display:block;text-align:left;padding:8px;background:#f7faff;border:1px solid #dce6f5;border-radius:20px;cursor:pointer;color:inherit;transition:transform .18s,box-shadow .18s,border-color .18s;min-width:0}
+.zt-shot:hover,.zt-shot:focus-visible{transform:translateY(-2px);box-shadow:0 12px 26px rgba(27,57,97,.12);border-color:#96bbfa;outline-offset:3px}
+.zt-shot img{display:block;width:100%;height:auto;aspect-ratio:689/1536;object-fit:contain;border-radius:13px;background:#081421}
+.zt-shot-label{display:block;font-size:12px;font-weight:750;color:#40536d;margin:10px 3px 3px;line-height:1.35}
+.zt-renew-section .zt-renew-card{display:grid;grid-template-columns:minmax(0,1.3fr) auto;align-items:center;gap:22px;padding:26px;background:linear-gradient(118deg,#fff,#eff5ff)}
+.zt-renew-section h3{margin:0 0 9px;font-size:20px;color:#172033}
+.zt-renew-section p{margin:0 0 13px;color:#526078;line-height:1.65;font-size:14px}
+.zt-renew-highlights{display:flex;flex-wrap:wrap;gap:8px}
+.zt-renew-highlights span{font-size:12px;color:#2857a5;background:#e8f1ff;border:1px solid #d5e5ff;border-radius:999px;padding:7px 10px;font-weight:750}
+.zt-gallery-overlay[hidden]{display:none!important}
+.zt-gallery-overlay{position:fixed;inset:0;background:rgba(5,12,24,.96);z-index:120;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:18px 64px 68px;color:#fff;touch-action:pan-y}
+.zt-gallery-stage{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.zt-gallery-full{display:block;max-height:calc(100dvh - 105px);max-width:min(440px,92vw);width:auto;height:auto;object-fit:contain;border:1px solid rgba(255,255,255,.18);border-radius:12px;box-shadow:0 22px 70px rgba(0,0,0,.55);user-select:none;-webkit-user-drag:none}
+.zt-gallery-close,.zt-gallery-arrow{position:absolute;display:grid;place-items:center;background:rgba(255,255,255,.13);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:50%;cursor:pointer;font-weight:400}
+.zt-gallery-close{right:20px;top:16px;width:45px;height:45px;font-size:30px;line-height:1}
+.zt-gallery-arrow{top:50%;transform:translateY(-50%);width:47px;height:47px;font-size:36px;line-height:1}
+.zt-gallery-prev{left:15px}.zt-gallery-next{right:15px}
+.zt-gallery-close:hover,.zt-gallery-arrow:hover{background:rgba(255,255,255,.23)}
+.zt-gallery-info{position:absolute;bottom:18px;left:10px;right:10px;text-align:center;pointer-events:none;color:#e9effb;font-size:14px}
+.zt-gallery-info span{display:block;font-size:12px;color:#a5b5cd;margin-top:3px}
+@media(max-width:700px){.zt-renew-section .zt-renew-card{grid-template-columns:1fr}.zt-renew-section .zt-renew-link{width:100%}}
+@media(max-width:560px){.zt-renew-quick{align-items:stretch;flex-direction:column;padding:16px}.zt-renew-quick .zt-renew-link{width:100%}.zt-gallery-shell{padding:15px 10px}.zt-shot{flex-basis:146px;padding:6px;border-radius:17px}.zt-shot img{border-radius:11px}.zt-gallery-track{gap:10px}.zt-gallery-overlay{padding:12px 4px 68px}.zt-gallery-full{max-width:calc(100vw - 28px);max-height:calc(100dvh - 120px)}.zt-gallery-arrow{width:40px;height:40px;font-size:28px;top:auto;bottom:14px;transform:none}.zt-gallery-prev{left:14px}.zt-gallery-next{right:14px}.zt-gallery-close{top:12px;right:12px}.zt-gallery-info{bottom:16px;left:60px;right:60px}}
+
+
+/* Etapa de verificação por e-mail: preserva o link com token do backend. */
+.hero .zt-renew-quick{margin-top:15px;padding:15px 16px;align-items:center;gap:12px}
+.hero .zt-renew-quick b{font-size:14px}
+.hero .zt-renew-quick p{font-size:12.5px}
+.zt-renew-link{border:0;cursor:pointer;white-space:normal;text-align:center;flex:none}
+.zt-renew-email-modal[hidden]{display:none!important}
+.zt-renew-email-modal{position:fixed;inset:0;z-index:140;background:rgba(7,15,28,.74);display:flex;align-items:center;justify-content:center;padding:20px;overscroll-behavior:contain}
+.zt-renew-email-dialog{width:min(480px,100%);position:relative;background:#fff;border-radius:24px;box-shadow:0 24px 80px rgba(0,0,0,.35);padding:28px;max-height:90vh;overflow-y:auto}
+.zt-renew-email-dialog h2{font-size:22px;line-height:1.25;color:#172033;margin:0 38px 11px 0}
+.zt-renew-email-dialog p{color:#5e6c81;font-size:14px;line-height:1.6;margin:0 0 18px}
+.zt-renew-email-dialog label{display:block;font-size:13px;color:#344054;font-weight:750;margin-bottom:8px}
+.zt-renew-email-dialog input[type=email]{display:block;width:100%;height:50px;border:1px solid #c6d4e5;border-radius:13px;padding:0 14px;background:#fff;font:inherit;color:#172033;outline-offset:2px}
+.zt-renew-email-dialog input[type=email]:focus{border-color:#165dff;box-shadow:0 0 0 3px rgba(22,93,255,.1);outline:none}
+.zt-renew-email-actions{display:flex;gap:10px;justify-content:flex-end;align-items:center;margin-top:18px}
+.zt-renew-email-actions button{min-height:45px;border-radius:12px;border:1px solid #cbd5e3;cursor:pointer;font-weight:800;padding:0 16px}
+#zt-email-cancel{background:#fff;color:#344054}
+#zt-email-submit{background:#165dff;color:#fff;border-color:#165dff}
+#zt-email-submit:disabled{opacity:.62;cursor:wait}
+#zt-email-close{position:absolute;right:18px;top:15px;border:0;background:#f3f6fc;color:#4a5870;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:25px;line-height:1}
+#zt-email-feedback{display:none;margin-top:15px;padding:13px 14px;border-radius:12px;background:#edf6ff;color:#1a4c80;font-size:13px;line-height:1.5}
+#zt-email-feedback.show{display:block}
+#zt-email-feedback.error{background:#fff5ed;color:#9b3a18}
+.zt-renew-email-note{font-size:12px!important;margin-top:17px!important;color:#7a8799!important}
+@media(max-width:560px){.zt-renew-email-dialog{padding:24px 19px}.zt-renew-email-actions{flex-direction:column-reverse}.zt-renew-email-actions button{width:100%}.hero .zt-renew-quick{padding:14px}.hero .zt-renew-link{width:100%}}
 </style>
 </head>
 <body>
@@ -96,12 +158,35 @@ a{color:inherit}
           <div class="progress-track" id="progressTrack"><div class="progress-fill" id="progressFill"></div></div>
           <div class="download-size" id="downloadSize">Aguardando início…</div>
         </div>
+        <div class="zt-renew-quick" id="renovacao">
+          <div><b>Minha Conta e Renovação</b><p>Ative, renove ou antecipe sua contribuição. Receba um link seguro no e-mail cadastrado.</p></div>
+          <button type="button" class="zt-renew-link" data-open-renew>Renovar / Contribuir</button>
+        </div>
       </div>
       <p class="desc-short">Comunicação PTT por canais públicos e privados, com Assistente, Gateway, Echo Offline e PTT físico. <strong>O acesso aos canais online funciona por contribuição, conforme o período escolhido.</strong></p>
       <div class="stats">
         <div class="stat"><b>Android 6.0+</b><span>Compatibilidade</span></div>
         <div class="stat"><b>APK oficial</b><span>Instalação direta</span></div>
         <div class="stat"><b>Por contribuição</b><span>Acesso online por período</span></div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Capturas reais do aplicativo, na ordem aprovada -->
+  <section class="section" id="capturas" aria-labelledby="zt-gallery-title">
+    <div class="section-head"><div><h2 id="zt-gallery-title">Capturas de tela</h2><p class="section-sub">Conheça o Z-Link Talk antes de instalar. Toque para ampliar e deslize para navegar, como em uma loja de aplicativos.</p></div></div>
+    <div class="card zt-gallery-shell">
+      <div class="zt-gallery-toolbar"><span class="zt-gallery-tip">Prévia das telas reais • Arraste para explorar</span><div class="zt-gallery-nav"><button id="zt-scroll-prev" type="button" aria-label="Mostrar capturas anteriores">‹</button><button id="zt-scroll-next" type="button" aria-label="Mostrar próximas capturas">›</button></div></div>
+      <div class="zt-gallery-track" id="zt-gallery-track" aria-label="Galeria de capturas do Z-Link Talk">
+      <button class="zt-shot" type="button" data-zt-index="0" aria-label="Ampliar captura 1: PTT do canal"><img src="assets/capturas/01-ptt-canal.jpg" alt="Z-Link Talk — PTT do canal" loading="lazy" decoding="async"><span class="zt-shot-label">PTT do canal</span></button>
+      <button class="zt-shot" type="button" data-zt-index="1" aria-label="Ampliar captura 2: Assistente transmitindo"><img src="assets/capturas/02-ptt-assistente.jpg" alt="Z-Link Talk — Assistente transmitindo" loading="lazy" decoding="async"><span class="zt-shot-label">Assistente transmitindo</span></button>
+      <button class="zt-shot" type="button" data-zt-index="2" aria-label="Ampliar captura 3: Lista de canais"><img src="assets/capturas/03-canais.jpg" alt="Z-Link Talk — Lista de canais" loading="lazy" decoding="async"><span class="zt-shot-label">Lista de canais</span></button>
+      <button class="zt-shot" type="button" data-zt-index="3" aria-label="Ampliar captura 4: Login e Echo Offline"><img src="assets/capturas/04-login.jpg" alt="Z-Link Talk — Login e Echo Offline" loading="lazy" decoding="async"><span class="zt-shot-label">Login e Echo Offline</span></button>
+      <button class="zt-shot" type="button" data-zt-index="4" aria-label="Ampliar captura 5: Integração e modos"><img src="assets/capturas/05-opcoes-integracao.jpg" alt="Z-Link Talk — Integração e modos" loading="lazy" decoding="async"><span class="zt-shot-label">Integração e modos</span></button>
+      <button class="zt-shot" type="button" data-zt-index="5" aria-label="Ampliar captura 6: Controles e preferências"><img src="assets/capturas/06-opcoes-ptt.jpg" alt="Z-Link Talk — Controles e preferências" loading="lazy" decoding="async"><span class="zt-shot-label">Controles e preferências</span></button>
+      <button class="zt-shot" type="button" data-zt-index="6" aria-label="Ampliar captura 7: Adicionar canal"><img src="assets/capturas/07-adicionar-canal.jpg" alt="Z-Link Talk — Adicionar canal" loading="lazy" decoding="async"><span class="zt-shot-label">Adicionar canal</span></button>
+      <button class="zt-shot" type="button" data-zt-index="7" aria-label="Ampliar captura 8: Criar canal"><img src="assets/capturas/08-criar-canal.jpg" alt="Z-Link Talk — Criar canal" loading="lazy" decoding="async"><span class="zt-shot-label">Criar canal</span></button>
       </div>
     </div>
   </section>
@@ -130,6 +215,9 @@ a{color:inherit}
       <div><strong>Importante sobre a contribuição</strong><p>O aplicativo não libera acesso online permanente apenas com a instalação do APK. A comunicação pelos canais depende da situação e do período de contribuição da conta. Se a validade terminar, o acesso online poderá ficar suspenso até a regularização ou renovação. O <strong>Echo Offline</strong> é um recurso local e não deve ser confundido com a conexão aos canais online.</p></div>
     </div>
   </section>
+
+
+
 
   <section class="section">
     <div class="section-head"><div><h2>Principais recursos</h2><p class="section-sub">Recursos de comunicação disponíveis conforme o modo utilizado e a situação de acesso da conta.</p></div></div>
@@ -176,6 +264,35 @@ a{color:inherit}
 
   <footer class="footer"><div><strong>Z-Link Talk</strong><br>Aplicativo de comunicação PTT para Android, com acesso online por contribuição.</div><div>Desenvolvedor: Diniz-RF<br>Site oficial: zlinktalk.com.br</div></footer>
 </main>
+
+<!-- Ampliação estilo Play Store com deslize e navegação por teclado -->
+<div class="zt-gallery-overlay" id="zt-gallery-overlay" role="dialog" aria-modal="true" aria-label="Visualização ampliada das capturas" hidden>
+  <button class="zt-gallery-close" id="zt-gallery-close" type="button" aria-label="Fechar captura ampliada">×</button>
+  <button class="zt-gallery-arrow zt-gallery-prev" id="zt-gallery-prev" type="button" aria-label="Captura anterior">‹</button>
+  <div class="zt-gallery-stage" id="zt-gallery-stage"><img id="zt-gallery-full" class="zt-gallery-full" src="" alt="Captura de tela ampliada" draggable="false"></div>
+  <button class="zt-gallery-arrow zt-gallery-next" id="zt-gallery-next" type="button" aria-label="Próxima captura">›</button>
+  <div class="zt-gallery-info" id="zt-gallery-info" aria-live="polite"></div>
+</div>
+
+
+<!-- O e-mail só solicita um link; a confirmação acontece pelo token enviado ao titular. -->
+<div class="zt-renew-email-modal" id="zt-renew-email-modal" role="dialog" aria-modal="true" aria-labelledby="zt-renew-modal-title" hidden>
+  <div class="zt-renew-email-dialog">
+    <button id="zt-email-close" type="button" aria-label="Fechar">×</button>
+    <h2 id="zt-renew-modal-title">Minha Conta e Renovação</h2>
+    <p>Informe o e-mail cadastrado no Z-Link Talk. Enviaremos um link temporário para confirmar que você tem acesso a esse e-mail e prosseguir com a contribuição ou renovação.</p>
+    <form id="zt-renew-email-form" novalidate>
+      <label for="zt-renew-email-input">E-mail cadastrado</label>
+      <input type="email" id="zt-renew-email-input" name="email" required autocomplete="email" maxlength="254" placeholder="seuemail@exemplo.com" inputmode="email">
+      <div id="zt-email-feedback" role="status" aria-live="polite"></div>
+      <div class="zt-renew-email-actions">
+        <button id="zt-email-cancel" type="button">Cancelar</button>
+        <button id="zt-email-submit" type="submit">Enviar link de verificação</button>
+      </div>
+    </form>
+    <p class="zt-renew-email-note">Por segurança, a resposta não informa se o e-mail existe no cadastro. Caso receba o link, abra-o para continuar em zlinktalk.com.br/renovar.</p>
+  </div>
+</div>
 
 <div class="overlay" id="confirmOverlay" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
   <div class="sheet">
@@ -601,6 +718,151 @@ document.getElementById('shareBtn2').addEventListener('click',shareApp);
 window.addEventListener('pagehide',()=>{
   if (apkObjectUrl) URL.revokeObjectURL(apkObjectUrl);
 });
+</script>
+
+<script>
+/* Galeria independente. JavaScript ES5 para não interferir no download existente. */
+(function(){
+  var thumbs=document.querySelectorAll('.zt-shot');
+  var track=document.getElementById('zt-gallery-track');
+  var overlay=document.getElementById('zt-gallery-overlay');
+  var full=document.getElementById('zt-gallery-full');
+  var info=document.getElementById('zt-gallery-info');
+  var closeBtn=document.getElementById('zt-gallery-close');
+  var prev=document.getElementById('zt-gallery-prev');
+  var next=document.getElementById('zt-gallery-next');
+  var index=0, startX=null, startY=null, previousFocus=null, previousOverflow='';
+  var items=[];
+  for (var i=0;i<thumbs.length;i++){
+    (function(n){
+      var t=thumbs[n];
+      var im=t.querySelector('img');
+      var title=t.querySelector('.zt-shot-label').textContent;
+      items.push({src:im.getAttribute('src'),name:title});
+      t.addEventListener('click',function(){open(n);});
+    })(i);
+  }
+  function render(n){
+    if (!items.length) return;
+    index=(n+items.length)%items.length;
+    full.setAttribute('src',items[index].src);
+    full.setAttribute('alt','Z-Link Talk — '+items[index].name);
+    info.textContent=items[index].name+' • '+(index+1)+' de '+items.length;
+  }
+  function isOpen(){return !overlay.hasAttribute('hidden');}
+  function open(n){
+    previousFocus=document.activeElement;
+    previousOverflow=document.body.style.overflow;
+    render(n);
+    overlay.removeAttribute('hidden');
+    document.body.style.overflow='hidden';
+    closeBtn.focus();
+  }
+  function close(){
+    overlay.setAttribute('hidden','');
+    document.body.style.overflow=previousOverflow;
+    full.removeAttribute('src');
+    if(previousFocus && previousFocus.focus) previousFocus.focus();
+  }
+  closeBtn.addEventListener('click',close);
+  prev.addEventListener('click',function(){render(index-1);});
+  next.addEventListener('click',function(){render(index+1);});
+  overlay.addEventListener('click',function(e){if(e.target===overlay || e.target===document.getElementById('zt-gallery-stage'))close();});
+  document.addEventListener('keydown',function(e){
+    if (!isOpen()) return;
+    if(e.key==='Escape' || e.keyCode===27){e.preventDefault();close();}
+    else if(e.key==='ArrowRight'||e.keyCode===39){e.preventDefault();render(index+1);}
+    else if(e.key==='ArrowLeft'||e.keyCode===37){e.preventDefault();render(index-1);}
+    else if(e.key==='Tab'||e.keyCode===9){
+      var focusable=[closeBtn,prev,next];
+      var pos=focusable.indexOf(document.activeElement);
+      if(pos===-1){e.preventDefault();closeBtn.focus();}
+      else {e.preventDefault();focusable[(pos+(e.shiftKey?-1:1)+focusable.length)%focusable.length].focus();}
+    }
+  });
+  var stage=document.getElementById('zt-gallery-stage');
+  stage.addEventListener('touchstart',function(e){
+    if(!e.changedTouches.length)return;
+    startX=e.changedTouches[0].clientX;startY=e.changedTouches[0].clientY;
+  },{passive:true});
+  stage.addEventListener('touchend',function(e){
+    if(startX===null||!e.changedTouches.length)return;
+    var dx=e.changedTouches[0].clientX-startX;
+    var dy=e.changedTouches[0].clientY-startY;
+    if(Math.abs(dx)>45 && Math.abs(dx)>Math.abs(dy)*1.2)render(index+(dx<0?1:-1));
+    startX=null;startY=null;
+  },{passive:true});
+  function scrollTrack(direction){
+    var distance=Math.min(track.clientWidth*.72,480)*direction;
+    if(track.scrollBy){try{track.scrollBy({left:distance,behavior:'smooth'});return;}catch(e){}}
+    track.scrollLeft+=distance;
+  }
+  document.getElementById('zt-scroll-prev').addEventListener('click',function(){scrollTrack(-1);});
+  document.getElementById('zt-scroll-next').addEventListener('click',function(){scrollTrack(1);});
+})();
+</script>
+
+
+<script>
+/* Renovação via link enviado ao e-mail. Integração opcional com endpoint público do Node.js. */
+(function(){
+  var dlg = document.getElementById('zt-renew-email-modal');
+  var input = document.getElementById('zt-renew-email-input');
+  var form = document.getElementById('zt-renew-email-form');
+  var submit = document.getElementById('zt-email-submit');
+  var feedback = document.getElementById('zt-email-feedback');
+  var openers = document.querySelectorAll('[data-open-renew]');
+  var lastFocus = null;
+  var endpoint = 'https://servidor.zlinktalk.com.br/api/renewal/request-link';
+  function show(message,error){
+    feedback.textContent=message;
+    feedback.className='show'+(error?' error':'');
+  }
+  function open(){
+    lastFocus=document.activeElement;
+    feedback.className=''; feedback.textContent='';
+    input.value=''; submit.disabled=false;
+    dlg.hidden=false;
+    if(input.focus) input.focus();
+  }
+  function close(){
+    if(submit.disabled) return;
+    dlg.hidden=true;
+    if(lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  for(var i=0;i<openers.length;i++) openers[i].addEventListener('click',open);
+  document.getElementById('zt-email-close').addEventListener('click',close);
+  document.getElementById('zt-email-cancel').addEventListener('click',close);
+  dlg.addEventListener('click',function(evt){if(evt.target===dlg) close();});
+  document.addEventListener('keydown',function(evt){if(evt.key==='Escape' && !dlg.hidden) close();});
+  form.addEventListener('submit',function(evt){
+    evt.preventDefault();
+    if(submit.disabled) return;
+    var email=String(input.value||'').replace(/^\s+|\s+$/g,'').toLowerCase();
+    if(!email || email.length>254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      show('Informe um e-mail válido.',true); input.focus(); return;
+    }
+    submit.disabled=true; submit.textContent='Enviando...';
+    show('Solicitando link de verificação...',false);
+    var xhr=new XMLHttpRequest();
+    xhr.open('POST',endpoint,true);
+    xhr.timeout=20000;
+    xhr.setRequestHeader('Content-Type','application/json');
+    xhr.onreadystatechange=function(){
+      if(xhr.readyState!==4) return;
+      submit.disabled=false;submit.textContent='Enviar link de verificação';
+      if(xhr.status>=200 && xhr.status<300){
+        show('Se o e-mail informado estiver cadastrado e apto para renovação, você receberá um link temporário. Confira também a pasta Spam.',false);
+        return;
+      }
+      if(xhr.status===429){show('Muitas solicitações. Aguarde alguns minutos antes de tentar novamente.',true);return;}
+      show('Não foi possível solicitar o link agora. Tente novamente mais tarde.',true);
+    };
+    xhr.onerror=function(){if(xhr.readyState===4) return;submit.disabled=false;submit.textContent='Enviar link de verificação';show('Falha de conexão. Verifique a internet e tente novamente.',true);};
+    xhr.ontimeout=function(){submit.disabled=false;submit.textContent='Enviar link de verificação';show('Tempo de resposta esgotado. Tente novamente.',true);};
+    try{xhr.send(JSON.stringify({email:email}));}catch(e){submit.disabled=false;submit.textContent='Enviar link de verificação';show('Não foi possível iniciar a verificação.',true);}
+  });
+})();
 </script>
 </body>
 </html>
