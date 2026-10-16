@@ -180,11 +180,12 @@ a{color:inherit}
 .zt-choice-card{display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding:23px 24px 19px;background:#fff;border:1px solid #d9e4f2;border-radius:22px;box-shadow:0 8px 30px rgba(23,46,78,.055)}
 .zt-choice-card-android{background:linear-gradient(165deg,#f5f9ff 0,#fff 70%);border-color:#b8d0f4}
 .zt-choice-card-universal{background:linear-gradient(165deg,#f5fbfa 0,#fff 70%);border-color:#beddd9}
-.zt-choice-top{display:flex;align-items:center;gap:10px;margin-bottom:13px;min-height:38px}
-.zt-device-icon{width:38px;height:38px;border-radius:12px;background:#e2eeff;color:#1754a2;display:grid;place-items:center;font-size:23px;font-weight:800;flex:none}
-.zt-choice-card-universal .zt-device-icon{background:#e0f4ef;color:#177568}
-.zt-choice-tag{font-size:10px;color:#41658d;font-weight:850;letter-spacing:.045em;line-height:1.45}
-.zt-choice-card h3{font-size:21px;letter-spacing:-.4px;margin:0 0 8px;line-height:1.24;color:#192d43}
+.zt-choice-top{display:flex;align-items:center;gap:16px;margin-bottom:17px;min-height:92px;width:100%}
+.zt-device-icon{width:92px;height:92px;border-radius:18px;background:#fff;color:#48c157;border:1px solid #e5e8ee;display:grid;place-items:center;flex:none;box-shadow:0 8px 22px rgba(16,33,56,.08)}.zt-device-icon svg{width:60px;height:60px;display:block;fill:currentColor}
+.zt-choice-card-universal .zt-device-icon{background:#fff;color:#000;border-color:#e5e8ee;box-shadow:0 8px 22px rgba(16,33,56,.08)}
+.zt-choice-card-android .zt-device-icon svg{width:74px;height:74px}.zt-choice-card-universal .zt-device-icon svg{width:74px;height:74px}
+.zt-choice-tag{font-size:12px;color:#315b82;font-weight:900;letter-spacing:.047em;line-height:1.55;max-width:100%}
+.zt-choice-card h3{font-size:clamp(25px,2.35vw,30px);letter-spacing:-.75px;font-weight:900;margin:0 0 13px;line-height:1.18;color:#102a45;text-wrap:balance}
 .zt-choice-card p{font-size:13.7px;color:#56697f;line-height:1.58;margin:0;min-height:65px}
 .zt-choice-card ul{margin:15px 0 19px;padding:0;list-style:none;display:grid;gap:9px;flex:1;width:100%}
 .zt-choice-card li{font-size:13px;line-height:1.5;color:#35485e;display:flex;gap:9px;align-items:flex-start}
@@ -194,7 +195,19 @@ a{color:inherit}
 .zt-choice-btn-primary{background:#155bee;color:#fff}.zt-choice-btn-primary:hover{background:#0e48c4}
 .zt-choice-btn-secondary{background:#fff;color:#176357;border-color:#91c9bf}.zt-choice-btn-secondary:hover{background:#e6f6f2;border-color:#45a99a}
 .zt-choice-btn span{font-size:21px;line-height:1;flex:none}
-.zt-choice-after{display:block;margin-top:11px;font-size:11.5px;line-height:1.45;color:#75849a}
+/* Descrição legível e diferenciada sob cada botão de instalação. */
+.zt-choice-after{display:block;width:100%;margin-top:14px;padding:15px 17px;border-radius:14px;background:#eef5ff;border:1px solid #d7e5f7;color:#344e6b;line-height:1.5}
+.zt-choice-card-universal .zt-choice-after{background:#f0f9f6;border-color:#d2ebe1;color:#345f55}
+.zt-choice-after-title{display:block;margin:0 0 6px;font-size:15.7px;font-weight:850;line-height:1.42;color:#153c6a}
+.zt-choice-card-universal .zt-choice-after-title{color:#176352}
+.zt-choice-after-lead{display:block;font-size:13.5px;line-height:1.48;color:#40566d}
+.zt-choice-card .zt-choice-after-list{list-style:none;display:grid;gap:5px;width:100%;margin:11px 0 0;padding:0;flex:none}
+.zt-choice-card .zt-choice-after-list li{display:flex;align-items:flex-start;gap:8px;font-size:13.4px;line-height:1.48;font-weight:580;color:#304962}
+.zt-choice-card .zt-choice-after-list li::before{content:'✓';color:#1665bb;flex:0 0 auto;font-size:13px;font-weight:900}
+.zt-choice-card-universal .zt-choice-after-list li{color:#305b51}
+.zt-choice-card-universal .zt-choice-after-list li::before{color:#158166}
+@media(max-width:680px){.zt-choice-after{padding:14px 15px}.zt-choice-after-title{font-size:15px}.zt-choice-card .zt-choice-after-list li{font-size:13.4px}}
+
 .zt-choice-card .statusbar{margin-top:13px;width:100%}
 .zt-account-area{margin-top:26px;padding:22px 24px;display:grid;grid-template-columns:50px minmax(0,1fr) auto;align-items:center;gap:18px;background:#f7f9fc;border:1px solid #e1e8f1;border-radius:19px}
 .zt-account-mark{width:50px;height:50px;display:grid;place-items:center;border-radius:15px;background:#e9eef7;color:#315b96;font-size:29px;font-weight:700}
@@ -203,9 +216,9 @@ a{color:inherit}
 .zt-share-line{display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;padding:21px 0 2px;font-size:12px;color:#77869c}
 .zt-share-button{border:0;background:none;padding:6px;color:#1a58b6;font-size:12.5px;font-weight:800;cursor:pointer}.zt-share-button:hover{text-decoration:underline}
 .hero>.desc-short{grid-column:1/-1;grid-row:2;max-width:none;margin:5px 0 0;font-size:15px;line-height:1.65}.hero>.zt-choice-area{grid-column:1/-1;grid-row:3;margin-top:6px}.hero>.stats{grid-column:1/-1;grid-row:4;margin-top:12px;max-width:850px}
-@media(max-width:800px){.zt-choice-card{padding:20px 19px}.zt-choice-card h3{font-size:19px}.zt-account-area{grid-template-columns:42px 1fr;gap:12px}.zt-account-mark{height:42px;width:42px}.zt-account-button{grid-column:2;justify-self:start}}
-@media(max-width:680px){.zt-choice-grid{grid-template-columns:1fr;gap:12px}.zt-choice-card{padding:19px}.zt-choice-card p{min-height:0}.zt-choice-card ul{margin:13px 0 15px}.zt-choice-heading p{font-size:13px}.zt-choice-area{margin-top:7px}.zt-account-area{margin-top:23px;padding:18px 15px;grid-template-columns:38px minmax(0,1fr);gap:10px}.zt-account-mark{width:38px;height:38px;font-size:24px;border-radius:12px}.zt-account-button{grid-column:1/-1;width:100%;justify-content:space-between}.zt-share-line{padding-top:16px}.hero-card .stats{margin-top:20px}}
-@media(max-width:350px){.zt-choice-card{padding:15px}.zt-choice-card h3{font-size:18px}.zt-choice-btn{font-size:13px}.zt-choice-top{gap:7px}}
+@media(max-width:800px){.zt-choice-card{padding:20px 19px}.zt-choice-card h3{font-size:26px}.zt-account-area{grid-template-columns:42px 1fr;gap:12px}.zt-account-mark{height:42px;width:42px}.zt-account-button{grid-column:2;justify-self:start}}
+@media(max-width:680px){.zt-choice-grid{grid-template-columns:1fr;gap:12px}.zt-choice-card{padding:21px}.zt-device-icon{width:82px;height:82px;border-radius:16px}.zt-device-icon svg{width:52px;height:52px}.zt-choice-card-android .zt-device-icon svg{width:64px;height:64px}.zt-choice-card-universal .zt-device-icon svg{width:64px;height:64px}.zt-choice-top{min-height:82px;gap:14px;margin-bottom:13px}.zt-choice-card h3{font-size:26px}.zt-choice-tag{font-size:11.5px}.zt-choice-card p{min-height:0}.zt-choice-card ul{margin:13px 0 15px}.zt-choice-heading p{font-size:13px}.zt-choice-area{margin-top:7px}.zt-account-area{margin-top:23px;padding:18px 15px;grid-template-columns:38px minmax(0,1fr);gap:10px}.zt-account-mark{width:38px;height:38px;font-size:24px;border-radius:12px}.zt-account-button{grid-column:1/-1;width:100%;justify-content:space-between}.zt-share-line{padding-top:16px}.hero-card .stats{margin-top:20px}}
+@media(max-width:350px){.zt-choice-card{padding:16px}.zt-choice-card h3{font-size:24px}.zt-choice-btn{font-size:13px}.zt-choice-top{gap:11px}.zt-device-icon{width:74px;height:74px;border-radius:16px}.zt-device-icon svg{width:47px;height:47px}.zt-choice-card-android .zt-device-icon svg{width:58px;height:58px}.zt-choice-card-universal .zt-device-icon svg{width:58px;height:58px}.zt-choice-tag{font-size:10.5px}}
 </style>
 </head>
 <body>
@@ -235,12 +248,35 @@ a{color:inherit}
         </div>
         <div class="zt-choice-grid">
           <article class="zt-choice-card zt-choice-card-android" aria-labelledby="zt-android-heading">
-            <div class="zt-choice-top"><span class="zt-device-icon" aria-hidden="true">▣</span><span class="zt-choice-tag">ANDROID • VERSÃO COMPLETA</span></div>
+            <div class="zt-choice-top"><span class="zt-device-icon" aria-hidden="true"><svg viewBox="0 0 64 64" role="img" focusable="false" aria-hidden="true">
+  <g fill="currentColor">
+    <path d="M14 25a18 18 0 0 1 36 0v1H14z"/>
+    <rect x="14" y="28" width="36" height="23" rx="3"/>
+    <rect x="5" y="29" width="7" height="20" rx="3.5"/>
+    <rect x="52" y="29" width="7" height="20" rx="3.5"/>
+    <rect x="21" y="48" width="7" height="13" rx="3.5"/>
+    <rect x="36" y="48" width="7" height="13" rx="3.5"/>
+  </g>
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+    <path d="M20.5 12.5 16 5.5M43.5 12.5 48 5.5"/>
+  </g>
+  <g fill="#fff"><circle cx="24.5" cy="20" r="1.8"/><circle cx="39.5" cy="20" r="1.8"/></g>
+</svg></span><span class="zt-choice-tag">ANDROID • VERSÃO COMPLETA</span></div>
             <h3 id="zt-android-heading">Z-Link Talk para Android</h3>
             <p>Para quem deseja todas as funções do aplicativo, incluindo os modos avançados de comunicação.</p>
             <ul><li>PTT por canais e controles avançados</li><li>Gateway, Assistente, Echo Offline e PTT físico</li></ul>
             <button class="zt-choice-btn zt-choice-btn-primary" id="installBtn" type="button">Baixar aplicativo Android <span aria-hidden="true">↓</span></button>
-            <span class="zt-choice-after">Arquivo APK oficial para instalar no Android</span>
+            <div class="zt-choice-after" aria-label="Detalhes da versão Android">
+              <strong class="zt-choice-after-title">Versão completa do aplicativo, instalável no Android.</strong>
+              <span class="zt-choice-after-lead">Inclui os recursos de comunicação e os modos avançados:</span>
+              <ul class="zt-choice-after-list">
+                <li>Falar e ouvir por PTT em canais públicos e privados.</li>
+                <li>Gateway e integração com Zello.</li>
+                <li>Assistente com mensagens e avisos programados.</li>
+                <li>Echo Offline, Roger Bip e PTT físico.</li>
+                <li>Gerenciamento e administração de canais.</li>
+              </ul>
+            </div>
             <div class="statusbar" id="statusbar" aria-live="polite">
               <div class="download-meta"><span id="downloadStatus">Preparando download…</span><strong id="downloadPercent">0%</strong></div>
               <div class="progress-track" id="progressTrack"><div class="progress-fill" id="progressFill"></div></div>
@@ -248,12 +284,22 @@ a{color:inherit}
             </div>
           </article>
           <article class="zt-choice-card zt-choice-card-universal" id="zlink-universal" aria-labelledby="zt-universal-heading">
-            <div class="zt-choice-top"><span class="zt-device-icon" aria-hidden="true">◈</span><span class="zt-choice-tag">IPHONE • ANDROID • COMPUTADOR</span></div>
+            <div class="zt-choice-top"><span class="zt-device-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img" focusable="false"><path d="M16.7 12.8c0-2 1.6-2.9 1.7-2.9-1-1.5-2.6-1.7-3.2-1.8-1.3-.1-2.5.8-3.2.8-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 6.9 1.1 9 .7 1 1.6 2.2 2.8 2.1 1.1 0 1.6-.7 3-.7 1.4 0 1.8.7 3 .7 1.2 0 2-.9 2.7-1.9.8-1.1 1.2-2.2 1.2-2.3 0 0-2.3-.9-2.3-4.5zM14.4 6.5c.6-.8 1.1-1.9 1-3-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-1 2.9 1 .1 2-.5 2.7-1.3z"/></svg></span><span class="zt-choice-tag">iOS • ANDROID • COMPUTADOR</span></div>
             <h3 id="zt-universal-heading">Z-Link Talk Universal</h3>
             <p>Versão instalável e simplificada para conversar nos canais usando seu iPhone, Android ou computador.</p>
             <ul><li>PTT, canais, perfil e fotos</li><li>Instalação pelo navegador na tela inicial</li></ul>
             <a class="zt-choice-btn zt-choice-btn-secondary" href="https://app.zlinktalk.com.br/PWA/" rel="noopener" aria-label="Instalar Z-Link Talk Universal">Instalar versão Universal <span aria-hidden="true">↗</span></a>
-            <span class="zt-choice-after">Versão essencial; não inclui todos os modos do Android</span>
+            <div class="zt-choice-after" aria-label="Detalhes da versão Universal">
+              <strong class="zt-choice-after-title">Versão essencial, instalável no iPhone, Android e computador.</strong>
+              <span class="zt-choice-after-lead">Reúne as funções básicas necessárias para a comunicação:</span>
+              <ul class="zt-choice-after-list">
+                <li>Falar e ouvir por PTT nos canais.</li>
+                <li>Buscar, adicionar e criar canais.</li>
+                <li>Editar perfil, avatar e foto dos canais.</li>
+                <li>Ver usuários conectados e reproduzir a última mensagem recebida.</li>
+                <li>Consultar a conta e renovar a contribuição.</li>
+              </ul>
+            </div>
           </article>
         </div>
         <section class="zt-account-area" id="renovacao" aria-labelledby="zt-account-title">
